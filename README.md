@@ -5,8 +5,9 @@ To run this project you will need an hadoop environnement with spark.
 Here, we are using AWS. If it is not your cas please adapt the following commands to your case. 
 
 To avoid any error, we recommand to use the following versions : 
-- hadoop : version
-- spark : version
+- hadoop : version 2.10.2
+- spark : version 3.5.0
+- python : version 3.10.12
 
 We also recommand not changing any file's name.
 
@@ -50,11 +51,9 @@ Example of command to load the file on your virtual machine (depending on enviro
 
 ## Needed Packages 
 To be able to run all the files make sure you installed all the needed packages with the good version
-* pandas : version 
-* sklearn : version  
-* 
-* 
-* 
+* pandas : version 2.1.4
+* scikit-learn : version 1.3.2  
+* numpy : version 1.26.3
 
 ## Running the project
 To run the project you must follow this steps.
