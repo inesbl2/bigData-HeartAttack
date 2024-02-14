@@ -1,4 +1,15 @@
 # bigData-HeartAttack
+## Introduction
+The main goal of this project is to predict the risk attack of a patient using big data tools. To do so we are using datasets which includes different significant health value as well as the target (0=no risk of heart attack and 1=Risk of heart attack) for each patient. Then, using correlation matrix and linear regression we are creating a model based on the data that allows the prediction of heart attack risk of any patient entered as an input. After, we apply this model to two streaming contexts : In the first one a file with data for different patient is used as an input and the output gives the risk for each line(i.e each patient), the second is a socket streaming where the input is a patient data we enter in the port and the output gives ‘at risk’ or ‘no risk’.
+### rdd_dataset1.py 
+This script serves as the starting point in data processing. Its main objective is to clean and prepare the heart attack dataset for an easier analysis. Certain columns that are not necessary for analysis or modeling, such as Patient ID, Country, Continent, and Hemisphere, are removed. Categorical values are replaced with numerical representations for gender and health status, facilitating subsequent processing and modeling. After applying the necessary transformations, the resulting dataset is saved for further analysis or modeling. 
+### correlation_matrix.py 
+The correlation matrix is calculated to understand the relationship between different attributes and the risk of a heart attack, and to be able to compare our initial dataset (dataset1) with a newer, more practical one (dataset2) for modeling purposes. It computes the correlation coefficients between each attribute and the target variable (Heart Attack Risk), helping identify which attributes are most related to the risk of a heart attack.
+### linear_regression_model.py 
+This script focuses on modeling and predicting heart attack risks using linear logistic regression. Recursive Feature Elimination (RFE) is used to select the most important features for predicting the risk of a heart attack. A linear logistic regression model is trained using the selected features and saved using joblib.
+### stream_from_file.py and stream_from_socket.py 
+Designed to process data in real-time and make predictions about heart attack risks. Using Spark Streaming to handle continuous data streams. They initialize a Spark streaming context to listen for incoming data from HDFS directory in the first case and from a socket in the second case. They load the pre-trained logistic regression model to make real-time predictions on patient data. 
+
 ## prerequisite
 To run this project you will need an hadoop environnement with spark.
 
